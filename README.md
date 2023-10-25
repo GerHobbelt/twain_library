@@ -4,7 +4,7 @@
 
 * The Dynarithmic TWAIN Library is open source and licensed under the Apache 2.0 License.  Please read the [LICENSE](https://github.com/dynarithmic/twain_library/tree/master/LICENSE) file for more information.
 * The DTWAIN Library online help file can be found [here](http://www.dynarithmic.com/onlinehelp5/dtwain/index.html).
-* The current version is [**5.3.0.4** (See Version History)](https://github.com/dynarithmic/twain_library/tree/master/updates/updates.txt).
+* The current version is [**5.3.0.5** (See Version History)](https://github.com/dynarithmic/twain_library/tree/master/updates/updates.txt).
 
 **Please note that the source code and sample programs for the Dynarithmic TWAIN Library has moved to [this repository](https://github.com/dynarithmic/twain_library_source/tree/master)**.
 
@@ -276,13 +276,15 @@ DTWAIN includes computer language bindings for the following computer languages 
       C/C++ header and source files for dynamic loading using the Windows API LoadLibrary() and GetProcAddress() functions.
       C# 
       Delphi
-      Java (using the Java Native Interface JNI)
       Perl
       Python 
       Visual Basic .NET 
       XBase++ (Alaska Software)
   
-For example, here is a bare-bones C# language example of acquiring a BMP image from a TWAIN device installed on your system.  The only additional requirement is to add one of the <a href="https://github.com/dynarithmic/twain_library/tree/master/language_bindings_and_examples/csharp" target="_blank">dtwain*.cs</a> files to the project, depending on the type of application (32-bit / 64-bit, ANSI / Unicode):
+There is also a [Java](https://www.oracle.com/java/) interface that is found in the [twain_library-java repository](https://github.com/dynarithmic/twain_library-java).
+
+###### Quick Example (C#)  
+Here is a bare-bones C# language example of acquiring a BMP image from a TWAIN device installed on your system.  The only additional requirement is to add one of the <a href="https://github.com/dynarithmic/twain_library/tree/master/language_bindings_and_examples/csharp" target="_blank">dtwain*.cs</a> files to the project, depending on the type of application (32-bit / 64-bit, ANSI / Unicode):
 
 ```plaintext
 using System;
@@ -333,7 +335,8 @@ A full C# demo can be found <a href="https://github.com/dynarithmic/twain_librar
 
 A full Visual Basic .NET demo can be found <a href="https://github.com/dynarithmic/twain_library-visualbasic_demo" target="_blank">here</a>.
 
-Other demos for other languages will be coming soon.
+For Java, it is recommended to look through the numerous demo programs in the [Java interface to DTWAIN repository](https://github.com/dynarithmic/twain_library-java).
+
 
 ----------
 
