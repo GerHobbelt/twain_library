@@ -1,5 +1,17 @@
 DTWAIN Version changes
 
+5.3.0.7 
+
+- Fix issue with DTWAIN_SetAcquireArea when resetting the acquisition area of interest.
+
+
+
+5.3.0.6 
+
+- Fix issue with DTWAIN_SelectDefaultSource selecting a null TWAIN data source.
+
+
+
 5.3.0.5 
 
 - Add DTWAIN_IsSourceValid() function to explicitly test to see if the DTWAIN_SOURCE is valid.
