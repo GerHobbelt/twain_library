@@ -22,8 +22,23 @@ OF THIRD PARTY RIGHTS.
 #include <dynarithmic/twain/session/twain_session.hpp>
 #include <dynarithmic/twain/logging/logger_callback.hpp>
 #include <dynarithmic/twain/twain_source.hpp>
-#include <boost/algorithm/string.hpp>
-#include <boost/algorithm/string/join.hpp>
+#include <dynarithmic/twain/utilities/string_utilities.hpp>
+#include <chrono>
+#include <thread>
+
+#if __cplusplus >= 201703L
+    #include <numeric>
+    #include <algorithm>
+    #define USE_CPPSTRING_FUNCS 
+    #define join_strings_ dynarithmic::twain::join
+    #define trim_copy_string_ dynarithmic::twain::trim_copy
+#else
+    #include <boost/algorithm/string.hpp>
+    #include <boost/algorithm/string/join.hpp>
+    #define join_strings_ boost::algorithm::join
+    #define trim_copy_string_ boost::algorithm::trim_copy
+#endif
+
 namespace dynarithmic
 {
     namespace twain
@@ -75,8 +90,6 @@ namespace dynarithmic
                     return false;
                 }
             }
-
-            const void* ptr = reinterpret_cast<const void*>(this);
 
             API_INSTANCE DTWAIN_SetErrorCallback64(error_callback_proc, PtrToInt64(this)); 
             API_INSTANCE DTWAIN_LoadCustomStringResourcesA(m_twain_characteristics.get_language().c_str());
@@ -546,7 +559,7 @@ namespace dynarithmic
         {
             auto container = container_in;
             std::transform(std::begin(container_in), std::end(container_in), std::begin(container),
-                [](const std::string& s) { return boost::algorithm::trim_copy(s); });
+                [](const std::string& s) { return trim_copy_string_(s); });
             std::string sAllDetails;
 #ifdef DTWAIN_USELOADEDLIB
             sAllDetails = json_generator().generate_details(*this, container,true);
@@ -567,7 +580,7 @@ namespace dynarithmic
             auto allSources = get_all_source_info();
             for (auto& sourceName : container)
             {
-                std::string sKeyToUse = boost::algorithm::trim_copy(sourceName);
+                std::string sKeyToUse = trim_copy_string_(sourceName);
                 if (std::find_if(allSources.begin(), allSources.end(),
                     [&](const source_basic_info& info) { return info.get_product_name() == sKeyToUse; }) ==
                     allSources.end())
@@ -576,7 +589,7 @@ namespace dynarithmic
             }
             if (aValidSources.empty())
                 return {};
-            std::string sources = boost::algorithm::join(aValidSources, "|");
+            std::string sources = join_strings_(aValidSources, "|");
             LONG nChars = API_INSTANCE DTWAIN_GetSessionDetailsA(nullptr, 0, info.indentFactor, TRUE);
             if (nChars > 0)
             {

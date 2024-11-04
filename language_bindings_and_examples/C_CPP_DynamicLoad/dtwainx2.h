@@ -30,6 +30,7 @@
 #include <winconst.h>
 #include <dtwaindefs.h>
 #include <dtwain_version.h>
+#include <dtwpdft.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -1984,6 +1985,7 @@ typedef DTWAIN_SOURCE (DLLENTRY_DEF* D_SELECTDEFAULTSOURCEWITHOPENFUNC)         
     STATIC D_USEMULTIPLETHREADSFUNC                         DTWAIN_UseMultipleThreads;
 #ifdef __cplusplus
         static int InitDTWAINInterface(DYNDTWAIN_API*, HMODULE h);
+        static int InitDTWAINInterface(HMODULE h);
 };
 #else
 } DYNDTWAIN_API;
