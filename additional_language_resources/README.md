@@ -1,16 +1,5 @@
 This directory contains additional language resources that can be used by DTWAIN.  
 
-By default, DTWAIN has English, Portuguese (Brazilian), Spanish, Italian, German, French and Dutch resource files.  These files are as follows:
-
-	
-	twainresourcestrings_english.txt        English resources
-    twainresourcestrings_dutch.txt 	 	Dutch resources
-	twainresourcestrings_french.txt  	French resources
-	twainresourcestrings_german.txt  	German resources
-	twainresourcestrings_italian.txt 	Italian resources
-	twainresourcestrings_spanish.txt 	Spanish strings
-    twainresourcestrings_portuguese_br.txt 	Portuguese-Brazilian strings
-
 --------------------------
 
 If you want to create your own language resource, the following steps should be done:
@@ -30,8 +19,15 @@ The part of the file name that represents the language (in the above case, "gree
 5) Change your DTWAIN application to add the following API call (after DTWAIN_SysInitialize is called):
 
     **DTWAIN_LoadCustomStringResourcesA("greek")**
-
+    
 Note that the name parameter used in DTWAIN_LoadCustomStringResources is the same name you gave the resource file (the part of the file name after the initial "_" character in the file name).
+
+6) Edit the [twainlanguage.txt](https://github.com/dynarithmic/twain_library/blob/master/additional_language_resources/twainlanguage.txt) file, and add at the end of the file your custom language name.  In the example using "greek", you would add the line
+
+**greek**
+
+to the list of supported languages.
+
 
 ---------------------------------
 
@@ -43,20 +39,6 @@ In general, the name of the new resource file will be of the form:
            twainresourcestrings_somename.txt
 
 where **somename** can be any string, and that string will be used in the DTWAIN_LoadCustomStringResourcesA function call.
-
----------------------------------
-Note that DTWAIN_LoadCustomStringResources can also work for the following by default:
-
-**DTWAIN_LoadCustomStringResourcesA("english") 
-DTWAIN_LoadCustomStringResourcesA("spanish")   
-DTWAIN_LoadCustomStringResourcesA("french")
-DTWAIN_LoadCustomStringResourcesA("italian")
-DTWAIN_LoadCustomStringResourcesA("german")
-DTWAIN_LoadCustomStringResourcesA("dutch")
-DTWAIN_LoadCustomStringResourcesA("portuguese_br")**
-
-Thus your application can load any string resource at runtime by providing the appropriate language string to DTWAIN_LoadCustomStringResourcesA.
-
 
 -----------------------
 ### Can we submit language resources to you to place in the Git repository?
