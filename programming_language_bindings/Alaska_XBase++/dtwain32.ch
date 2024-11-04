@@ -346,11 +346,11 @@
 #define  DTWAIN_TN_ACQUIREPAGEDONE                1010
 
 /* Source closing/opening wParam's */
-#define  DTWAIN_TN_UICLOSING                      1011
-#define  DTWAIN_TN_UICLOSED                       1012
-#define  DTWAIN_TN_UIOPENED                       1013
-#define  DTWAIN_TN_UIOPENING                      1055
-#define  DTWAIN_TN_UIOPENFAILURE                  1060
+#define  DTWAIN_TN_UICLOSING                      3000
+#define  DTWAIN_TN_UICLOSED                       3001
+#define  DTWAIN_TN_UIOPENED                       3002
+#define  DTWAIN_TN_UIOPENING                      3003
+#define  DTWAIN_TN_UIOPENFAILURE                  3004
 
 /* Twain page transferrance wParam's */
 #define  DTWAIN_TN_CLIPTRANSFERDONE               1014
@@ -850,6 +850,8 @@
 #define DTWAIN_ERR_SOURCENAME_NOTINSTALLED (-1054)
 #define DTWAIN_ERR_NO_MEMFILE_XFER       (-1055)
 #define DTWAIN_ERR_AREA_ARRAY_TOO_SMALL  (-1056)
+#define DTWAIN_ERR_LOG_CREATE_ERROR  (-1057)
+#define DTWAIN_ERR_FILESYSTEM_NOT_SUPPORTED (-1058)
 
 #define DTWAIN_ERR_LAST_1       DTWAIN_ERR_AREA_ARRAY_TOO_SMALL
 
@@ -991,6 +993,8 @@
 #define DTWAIN_ERR_OCR_LAST                (-2108)
 #define DTWAIN_ERR_SOURCE_COULD_NOT_OPEN   (-2500)
 #define DTWAIN_ERR_SOURCE_COULD_NOT_CLOSE  (-2501)
+#define DTWAIN_ERR_IMAGEINFO_INVALID       (-2502)
+#define DTWAIN_ERR_WRITEDATA_TOFILE        (-2503)
 
 #define DTWAIN_ERR_LAST                    DTWAIN_ERR_SOURCE_COULD_NOT_CLOSE
 #define DTWAIN_ERR_USER_START              (-80000)

@@ -3,8 +3,10 @@
 * This repository contains the DTWAIN Library, **Version 5.x**, from Dynarithmic Software.  DTWAIN is an open source programmer's library that will allow applications to acquire images from TWAIN-enabled devices using a simple Application Programmer's Interface (API).
 
 * The Dynarithmic TWAIN Library is open source and licensed under the Apache 2.0 License.  Please read the [LICENSE](https://github.com/dynarithmic/twain_library/tree/master/LICENSE) file for more information.
-* The DTWAIN Library online help file can be found [here](https://www.dynarithmic.com/onlinehelp/dtwain/newversion/Dynarithmic%20TWAIN%20Library,%20Version%205.x.html).
-* The current version is [**5.4.8** (See Version History)](https://github.com/dynarithmic/twain_library/tree/master/updates/updates.txt).
+* The DTWAIN Library online help file can be found [here](https://www.dynarithmic.com/onlinehelp/dtwain/newversion/Dynarithmic%20TWAIN%20Library,%20Version%205.x.html), and in .CHM (Windows Help) format [here](https://github.com/dynarithmic/twain_library-helpdocs/tree/main/windows).  
+
+    The .CHM file and online-help are being updated to version 5.5 on a constant basis.  Updates will be made available in the [help repository](https://github.com/dynarithmic/twain_library-helpdocs/tree/main), as it may have information that pertains to the older commercial version of DTWAIN that will have to be updated or removed.
+* The current version of DTWAIN is [**5.5.0** (See Version History)](https://github.com/dynarithmic/twain_library/tree/master/updates/updates.txt).
 
 **Please note that the source code and sample programs for the Dynarithmic TWAIN Library has moved to [this repository](https://github.com/dynarithmic/twain_library_source/tree/master)**.
 
@@ -125,7 +127,8 @@ If these files are not found, you will receive the following error when running 
 
 Note: If your application wants to suppress the above message box, but still receive an error return code, your application should issue a call to the API function **DTWAIN_SysInitializeNoBlocking** instead of **DTWAIN_SysInitialize** (see the examples below -- simply change **DTWAIN_SysInitialize** to **DTWAIN_SysInitializeNoBlocking**).  If **DTWAIN_SysInitializeNoBlocking** returns a 0 or null handle, a subsequent call to **DTWAIN_GetLastError** will return **-1051**, indicating that the DTWAIN resources were not loaded.
 
-Note: Make sure that you use the latest version of the text resources.  If you are not using a version of 
+Note: Make sure that you use the latest version of the text resources.  A check for the resource version is done by DTWAIN when **DTWAIN_SysInitialize** is called.  If DTWAIN detects that the resources are corrupted or out-of-date, **DTWAIN_SysInitialize** will return a NULL handle indicating an error.  
+
 In addition, there are optional string resource files available.  Here are a list of those files:
 	
 	twainresourcestrings_dutch.txt 	 	    Dutch resources
