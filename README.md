@@ -6,7 +6,7 @@
 * The DTWAIN Library online help file can be found [here](https://www.dynarithmic.com/onlinehelp/dtwain/newversion/Dynarithmic%20TWAIN%20Library,%20Version%205.x.html), and in .CHM (Windows Help) format [here](https://github.com/dynarithmic/twain_library-helpdocs/tree/main/windows).  
 
     The .CHM file and online-help are being updated to version 5.x on a constant basis.  Updates will be made available in the [help repository](https://github.com/dynarithmic/twain_library-helpdocs/tree/main), as it may have information that pertains to the older commercial version of DTWAIN that will have to be updated or removed.
-* The current version of DTWAIN is [**5.6.4** (See Version History)](https://github.com/dynarithmic/twain_library/tree/master/updates/updates.txt).
+* The current version of DTWAIN is [**5.6.6** (See Version History)](https://github.com/dynarithmic/twain_library/tree/master/updates/updates.txt).
 
 **Please note that the source code and sample programs for the Dynarithmic TWAIN Library has moved to [this repository](https://github.com/dynarithmic/twain_library_source/tree/main)**.
 
@@ -78,11 +78,11 @@ For 64-bit applications, use the binaries found in **release_libraries.zip** in 
 
 The **full_logging** directory contains the DLL's that have the following characteristics: 
 1) Built with full logging capabilities. Full logging consists of logging the call stack and return values when calling DTWAIN functions, plus the lower level calls that DTWAIN makes to the TWAIN Data Source Manager.  This is valuable in detecting issues that may occur when issuing calls to DTWAIN.
-2) Do not require an installation of the Visual C++ Runtime on the target system.
+2) Does not require an installation of the Visual C++ Runtime on the target system.
 
 The **partial_logging** directory contains the DLL's that are:
 1) Built without call stack and return values being logged.  These DLL's are around 500K smaller in size than the DLL's in **full_logging**.  Direct calls to the lower level TWAIN DSM are included, but the call stack and return value logging is not available, and
-2) Do not require an installation of the Visual C++ Runtime on the target system.
+2) Does not require an installation of the Visual C++ Runtime on the target system.
 
 The **full_logging_require_vcruntime** directory contains the DLL's that are 
 1) Built with full logging capabilities, exactly the same as **full_logging** described above, and
@@ -134,7 +134,7 @@ Basically, you just need to build your application and link it to one of the imp
 
 After building your application, for your application to run successfully, you must make sure the DTWAIN dynamic link library itself is located somewhere on the system path, or in your application directory (there are other places where the DLL can be located, but that is beyond the scope of this introduction -- please refer to the following link:
 
-[https://docs.microsoft.com/en-us/windows/desktop/dlls/dynamic-link-library-search-order](https://docs.microsoft.com/en-us/windows/desktop/dlls/dynamic-link-library-search-order).
+[https://docs.microsoft.com/en-us/windows/desktop/dlls/dynamic-link-library-search-order](https://docs.microsoft.com/en-us/windows/desktop/dlls/dynamic-link-library-search-order)).
 
 In addition to the DLL files, the <a href="https://github.com/dynarithmic/twain_library/tree/master/text_resources/twaininfo.txt" target="_blank">text resource file</a>, the <a href="https://github.com/dynarithmic/twain_library/blob/master/text_resources/dtwain32.ini" target="_blank">dtwain32.ini</a> for 32-bit applications, and <a href="https://github.com/dynarithmic/twain_library/blob/master/text_resources/dtwain64.ini" target="_blank">dtwain64.ini</a> for 64-bit applications </a> must also be available (by default, these files should reside in the same directory as the DLL files above, however as of version **5.2.0.2**, these files can reside in the directory specified by **DTWAIN_SetResourcePath**).  
 
